@@ -4,6 +4,13 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const PORT = process.env.TUNNEL_PORT || 8080;
+
+// Require JWT_SECRET in production
+if (process.env.NODE_ENV === "production" && !process.env.JWT_SECRET) {
+  console.error("ERROR: JWT_SECRET is required in production environment");
+  process.exit(1);
+}
+
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
 
 // Create HTTP server for WebSocket
@@ -21,7 +28,8 @@ wss.on("connection", (socket, req) => {
   console.log(`[TUNNEL] New connection from ${clientIP} (Total: ${activeConnections})`);
 
   // Authentication check (optional)
-  const token = new URL(req.url, `ws://localhost`).searchParams.get("token");
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const token = url.searchParams.get("token");
   
   if (process.env.REQUIRE_AUTH === "true" && !token) {
     socket.close(1008, "Authentication required");

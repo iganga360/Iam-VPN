@@ -9,6 +9,13 @@ require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Require JWT_SECRET in production
+if (process.env.NODE_ENV === "production" && !process.env.JWT_SECRET) {
+  console.error("ERROR: JWT_SECRET is required in production environment");
+  process.exit(1);
+}
+
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-production";
 
 // Security middleware

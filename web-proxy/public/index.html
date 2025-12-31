@@ -313,9 +313,9 @@
                 return;
             }
 
-            // Connect to WebSocket tunnel
+            // Connect to WebSocket tunnel (use same protocol and host as current page)
             const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsUrl = `${protocol}//${window.location.hostname}:8080`;
+            const wsUrl = `${protocol}//${window.location.host}/tunnel`;
 
             ws = new WebSocket(wsUrl);
 
