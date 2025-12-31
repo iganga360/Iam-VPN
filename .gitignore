@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PM2
+.pm2/
+pids/
+*.pid
+
+# WireGuard keys (sensitive)
+*_private.key
+*.key
+client*.conf
+server_*.key
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# SSL certificates (sensitive)
+*.pem
+*.crt
+*.key
+
+# Build outputs
+dist/
+build/
+
+# Testing
+coverage/
+
+# Misc
+.cache/

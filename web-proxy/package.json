@@ -1,0 +1,29 @@
+{
+  "name": "iam-vpn-web-proxy",
+  "version": "1.0.0",
+  "description": "Web-based VPN proxy with secure tunneling",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "tunnel": "node tunnel.js"
+  },
+  "keywords": [
+    "vpn",
+    "proxy",
+    "websocket",
+    "tunnel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.2",
+    "cors": "^2.8.5",
+    "ws": "^8.14.2",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^7.1.5",
+    "dotenv": "^16.3.1",
+    "helmet": "^7.1.0"
+  }
+}
