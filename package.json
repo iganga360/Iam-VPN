@@ -1,0 +1,40 @@
+{
+  "name": "iam-vpn",
+  "version": "1.0.0",
+  "description": "Web-based VPN, Proxy, and Tunnel Application",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "keywords": [
+    "vpn",
+    "proxy",
+    "tunnel",
+    "web-proxy",
+    "websocket"
+  ],
+  "author": "Iam-VPN",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "http-proxy": "^1.18.1",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^9.0.1",
+    "compression": "^1.7.4",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
