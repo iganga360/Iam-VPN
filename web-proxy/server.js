@@ -20,7 +20,16 @@ const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key-change-in-producti
 
 // Security middleware
 app.use(helmet({
-  contentSecurityPolicy: false,
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'", "ws:", "wss:"],
+      frameSrc: ["'none'"],
+    },
+  },
   crossOriginEmbedderPolicy: false
 }));
 
